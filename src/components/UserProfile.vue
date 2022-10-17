@@ -12,6 +12,11 @@
         <!-- 상위 컴포넌트에서 정의할 영역 -->
       </slot>
 
+      <!--
+        ItemView -> info.user
+        UserView -> info.id
+       -->
+
       <!-- # 1 -->
       <!-- <div class="time">{{ userInfo.created }}</div>-->
       <!-- # 2 -->
@@ -22,7 +27,9 @@
           <!-- 상위 컴포넌트에서 정의할 영역 -->
         </slot>
       </div>
-      <slot name="karma"></slot>
+      <slot name="karma">
+        <!-- 상위 컴포넌트에서 정의할 영역 -->
+      </slot>
 
     </div>
   </div>
