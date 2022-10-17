@@ -51,7 +51,7 @@ export default {
       }
     },
   },
-  created() {
+/*  created() {
     console.log(this.$route);
     const name = this.$route.name;
     if (name === 'news') {
@@ -61,7 +61,7 @@ export default {
     } else if (name === 'jobs') {
       this.$store.dispatch('FETCH_JOBS');
     }
-  },
+  },*/
 }
 </script>
 
