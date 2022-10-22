@@ -1,7 +1,8 @@
+<!--
 <template>
   <div>
     <ListItem></ListItem>
-    <!--    <ul class="news-list">
+    &lt;!&ndash;    <ul class="news-list">
           <li v-for="job in this.$store.state.jobs" class="post">
             &lt;!&ndash; 포인트 영역 &ndash;&gt;
             <div class="points">
@@ -20,7 +21,7 @@
               </small>
             </div>
           </li>
-        </ul>-->
+        </ul>&ndash;&gt;
   </div>
 </template>
 
@@ -45,4 +46,4 @@ export default {
     }, 1000);
   }
 }
-</script>
+</script>-->

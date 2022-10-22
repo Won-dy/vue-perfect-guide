@@ -1,3 +1,4 @@
+<!--
 <template>
   <div>
     <ListItem></ListItem>
@@ -34,4 +35,4 @@ export default {
     //     });
   }
 }
-</script>
+</script>-->
