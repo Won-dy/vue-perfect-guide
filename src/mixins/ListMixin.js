@@ -5,8 +5,11 @@ export default {
     created() {
         bus.$emit('start:spinner');
         setTimeout(() => {
+            // #1
             this.$store.dispatch("FETCH_LIST", this.$route.name)
                 .then(() => {
+                    // #5
+                    console.log(5);
                     console.log('fetched Mixins');
                     bus.$emit('end:spinner');
                 })
