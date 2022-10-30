@@ -50,12 +50,35 @@ export const router = new VueRouter({
             path: '/ask',
             component: AskView,  // 기본 or Mixin 사용
             // component: createListView('AskView'),  // HOC 생성
+            beforeEnter: (to, from, next) => {
+                bus.$emit('start:spinner');
+                store.dispatch("FETCH_LIST", to.name)
+                    .then(() => {
+                        console.log('fetched RouterGuard');
+                        // bus.$emit('end:spinner');
+                        next();
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
         },
         {
             name: 'jobs',
             path: '/jobs',
             component: JobsView,  // 기본 or Mixin 사용
             // component: createListView('JobsView'),  // HOC 생성
+            beforeEnter: (to, from, next) => {
+                bus.$emit('start:spinner');
+                store.dispatch("FETCH_LIST", to.name)
+                    .then(() => {
+                        console.log('fetched RouterGuard');
+                        next();
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
         },
         {
             path: '/user/:id',

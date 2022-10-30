@@ -35,6 +35,9 @@ export default {
     ListItem
   },
   mixins: [ListMixin],
+/*  mounted() {
+    bus.$emit('end:spinner');
+  },*/
   // computed: {
   //   // #1
   //   // fetchedAsk() {

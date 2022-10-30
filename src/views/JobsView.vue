@@ -32,6 +32,9 @@ import ListMixin from "../mixins/ListMixin.js";
 export default {
   components: {ListItem},
   mixins: [ListMixin],
+  // mounted() {
+  //   bus.$emit('end:spinner');
+  // },
 /*  created() {
     // this.$store.dispatch('FETCH_JOBS');
     bus.$emit('start:spinner');
