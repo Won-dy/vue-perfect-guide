@@ -1,51 +1,85 @@
 import {
-    /*    fetchAskList,
-        fetchJobsList,
-        fetchNewsList,*/
+    fetchAskList,
+    fetchJobsList,
+    fetchNewsList,
     fetchList,
     fetchUserInfo,
-    fetchCommentItem
+    fetchCommentItem,
 } from "../api";
 
 export default {
-/*    FETCH_NEWS(context) {
-        return fetchNewsList()
-            .then(response => {
-                // console.log(response);
-                context.commit('SET_NEWS', response.data);
-                return response;
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    // promise
+    /*    FETCH_NEWS(context) {
+            return fetchNewsList()
+                .then(response => {
+                    // console.log(response);
+                    context.commit('SET_NEWS', response.data);
+                    return response;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },*/
+    // async
+    async FETCH_NEWS(context) {
+        const response = await fetchNewsList();
+        context.commit('SET_NEWS', response.data);
+        return response;
     },
-    FETCH_ASK({commit}) {
-        return fetchAskList()
-            .then(({data}) => {
-                commit('SET_ASK', data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    // promise
+    /*    FETCH_ASK({commit}) {
+            return fetchAskList()
+                .then(({data}) => {
+                    commit('SET_ASK', data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },*/
+    // async
+    async FETCH_ASK({commit}) {
+        try {
+            const response = await fetchAskList();
+            commit('SET_ASK', response.data);
+            return response;
+        } catch (error) {
+            console.log(error);
+        }
+        // Destructuring
+        // const { data } = await fetchAskList();
+        // commit('SET_ASK', data);
+        // return data;
     },
     // Destructuring: 구조 분해 문법
     // FETCH_JOBS(context) {
-    FETCH_JOBS({commit}) {
-        return fetchJobsList()
-            // .then(response => {
-            //     context.commit('SET_JOBS', response.data);
-            // })
-            .then(({data}) => {
-                commit('SET_JOBS', data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    // promise
+    /*    FETCH_JOBS({commit}) {
+            return fetchJobsList()
+                // .then(response => {
+                //     context.commit('SET_JOBS', response.data);
+                // })
+                .then(({data}) => {
+                    commit('SET_JOBS', data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },*/
+    // async
+    async FETCH_JOBS({commit}) {
+        const response = await fetchJobsList();
+        commit('SET_JOBS', response.data);
+        return response;
     },
-*/
     // #2
-    FETCH_LIST({commit}, pageName) {
+    async FETCH_LIST({commit}, pageName) {
         // #3
+        const response = await fetchList(pageName);
+        // #4
+        console.log(4);
+        commit('SET_LIST', response.data);
+        return response;
+/*        // #3
         return fetchList(pageName)
             // .then(({data}) => commit('SET_LIST', data))
             .then(response => {
@@ -54,8 +88,7 @@ export default {
                 commit('SET_LIST', response.data);
                 return response;
             })
-            .catch(error => console.log(error));
-
+            .catch(error => console.log(error));*/
     },
     FETCH_USER({commit}, name) {
         return fetchUserInfo(name)
