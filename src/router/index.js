@@ -5,6 +5,8 @@ import AskView from '../views/AskView.vue'
 import JobsView from '../views/JobsView.vue'
 import UserView from '../views/UserView.vue'
 import ItemView from '../views/ItemView.vue'
+import bus from "../utils/bus.js";
+import { store } from "../store/index.js";
 // import createListView from "../views/CreateListView";
 
 Vue.use(VueRouter);
@@ -23,6 +25,25 @@ export const router = new VueRouter({
             // component: url 주소로 갔을 때 표시될 컴포넌트
             component: NewsView,  // 기본 or Mixin 사용
             // component: createListView('NewsView'),  // HOC 생성
+            beforeEnter: (to, from, next) => {
+                console.log('to', to);  // 이동할 URL의 라우팅 정보
+                console.log('from', from);  // 현재 URL의 라우팅 정보
+                console.log('next', next);  // 이동하기 위해 호출해야 하는 함수
+
+                bus.$emit('start:spinner');
+                // #1
+                store.dispatch("FETCH_LIST", to.name)
+                    .then(() => {
+                        // #5
+                        console.log(5);
+                        console.log('fetched RouterGuard');
+                        bus.$emit('end:spinner');
+                        next();
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
         },
         {
             name: 'ask',
