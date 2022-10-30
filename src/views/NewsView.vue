@@ -1,4 +1,3 @@
-<!--
 <template>
   <div>
     <ListItem></ListItem>
@@ -7,13 +6,15 @@
 
 <script>
 import ListItem from '../components/ListItem.vue';
-import bus from '../utils/bus.js';
+// import bus from '../utils/bus.js';
+import ListMixin from "../mixins/ListMixin.js";
 
 export default {
   components: {
     ListItem,
   },
-  created() {
+  mixins: [ListMixin],
+/*  created() {
     bus.$emit('start:spinner');
     setTimeout(() => {
       this.$store.dispatch('FETCH_NEWS')
@@ -33,6 +34,6 @@ export default {
     //     .catch((error) => {
     //       console.log(error);
     //     });
-  }
+  }*/
 }
-</script>-->
+</script>

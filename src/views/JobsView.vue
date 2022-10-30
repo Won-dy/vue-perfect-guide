@@ -1,8 +1,7 @@
-<!--
 <template>
   <div>
     <ListItem></ListItem>
-    &lt;!&ndash;    <ul class="news-list">
+    <!--    <ul class="news-list">
           <li v-for="job in this.$store.state.jobs" class="post">
             &lt;!&ndash; 포인트 영역 &ndash;&gt;
             <div class="points">
@@ -21,17 +20,19 @@
               </small>
             </div>
           </li>
-        </ul>&ndash;&gt;
+        </ul>-->
   </div>
 </template>
 
 <script>
 import ListItem from "../components/ListItem.vue";
-import bus from '../utils/bus.js';
+// import bus from '../utils/bus.js';
+import ListMixin from "../mixins/ListMixin.js";
 
 export default {
   components: {ListItem},
-  created() {
+  mixins: [ListMixin],
+/*  created() {
     // this.$store.dispatch('FETCH_JOBS');
     bus.$emit('start:spinner');
     setTimeout(() => {
@@ -44,6 +45,6 @@ export default {
             console.log(error);
           });
     }, 1000);
-  }
+  }*/
 }
-</script>-->
+</script>
