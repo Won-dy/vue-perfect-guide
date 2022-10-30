@@ -1,8 +1,9 @@
 <template>
   <div class="header">
-    <router-link to="/news">News</router-link> |
-    <router-link to="/ask">Ask</router-link> |
-    <router-link to="/jobs">Jobs</router-link>
+    <router-link to="/news">News</router-link>&nbsp;|&nbsp;
+    <router-link to="/ask">Ask</router-link>&nbsp;|&nbsp;
+    <router-link to="/jobs">Jobs</router-link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <router-link to="/asyncawait">async&await</router-link>
   </div>
 </template>
 

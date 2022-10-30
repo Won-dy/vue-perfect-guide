@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import NewsView from '../views/NewsView.vue'
 import AskView from '../views/AskView.vue'
 import JobsView from '../views/JobsView.vue'
+import AsyncAwaitView from '../views/AsyncAwaitView.vue'
 import UserView from '../views/UserView.vue'
 import ItemView from '../views/ItemView.vue'
 import bus from "../utils/bus.js";
@@ -79,6 +80,10 @@ export const router = new VueRouter({
                         console.log(error);
                     });
             }
+        },
+        {
+            path: '/asyncawait',
+            component: AsyncAwaitView,
         },
         {
             path: '/user/:id',
